@@ -1,0 +1,31 @@
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = Player 
+  FILE_GUID                      = 2A5B0BA8-8898-4944-8FBE-1DFC070E55A1
+  VERSION_STRING                 = 0.1
+  MODULE_TYPE                    = UEFI_APPLICATION
+  ENTRY_POINT                    = ShellCEntryLib
+
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF
+#
+
+[Sources]
+  Player.c 
+  AllocTable.c
+
+[Packages]
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  ShellCEntryLib
+  LibC
+  LibStdio
+  LibString
+  
+[BuildOptions]
+  MSFT:*_*_IA32_CC_FLAGS  = /Oi-
+  MSFT:DEBUG_*_IA32_DLINK_FLAGS = /EXPORT:InitializeDriver=$(IMAGE_ENTRY_POINT) /ALIGN:4096 /FILEALIGN:4096 /SUBSYSTEM:CONSOLE

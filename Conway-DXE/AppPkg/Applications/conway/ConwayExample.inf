@@ -1,0 +1,41 @@
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = ConwaySvc
+  FILE_GUID                      = 92FB94B7-E63F-4FF0-AFF7-0298CE804F5B
+  VERSION_STRING                 = 0.1
+  MODULE_TYPE                    = UEFI_DRIVER 
+  ENTRY_POINT                    = InitConwayExample 
+
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF
+#
+
+[Sources]
+  ConwayExample.c 
+  InitShell.c
+  AllocTable.c
+
+[Packages]
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  ShellPkg/ShellPkg.dec
+  StdLibPrivateInternalFiles/DoNotUse.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  LibC
+  LibStdio
+  LibMath
+  LibString
+  BsdSocketLib
+  EfiSocketLib
+  UseSocketDxe
+  DevShell
+  LibUefi
+  LibNetUtil
+
+[BuildOptions]
+  MSFT:*_*_IA32_CC_FLAGS  = /Oi-
+  MSFT:DEBUG_*_IA32_DLINK_FLAGS = /EXPORT:InitializeDriver=$(IMAGE_ENTRY_POINT) /ALIGN:4096 /FILEALIGN:4096 /SUBSYSTEM:CONSOLE

@@ -1,0 +1,6 @@
+﻿参考资料：
+1.戴正华《UEFI原理与编程》	ISBN: 9787111487296
+2.VS2013下__dtoui3 链接失败的临时解决方案	http://permalink.gmane.org/gmane.comp.bios.tianocore.devel/9506
+3.在UEFI_DRIVER 类型下使用UADK中的StdLib	https://countchu.blogspot.com/2015/06/use-c-library-in-edk-ii-uefi-driver.html
+4.康维生存游戏各语言源代码	http://rosettacode.org/wiki/Conway's_Game_of_Life
+5.调试非Nt32调用的代码	http://www.cppblog.com/djxzh/archive/2015/02/08/209766.html
